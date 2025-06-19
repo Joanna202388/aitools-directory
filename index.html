@@ -6,14 +6,13 @@
   <meta name="keywords" content="AI工具,AI写作,AI绘画,AI编程,AI办公,AI视频,AI语音,AI生产力,AI工具导航">
   <meta name="description" content="收录全网最热门、最实用的AI工具，涵盖AI写作、AI绘画、AI编程、AI办公、AI视频、AI语音等多个领域，助你高效工作与创作。">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- 可引入Bootstrap或其他UI库 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">AI工具导航</a>
-    <form class="d-flex ms-auto">
-      <input class="form-control me-2" type="search" placeholder="搜索AI工具/关键词" aria-label="Search">
+    <form class="d-flex ms-auto" id="search-form">
+      <input class="form-control me-2" type="search" placeholder="搜索AI工具/关键词" aria-label="Search" id="search-input">
       <button class="btn btn-outline-success" type="submit">搜索</button>
     </form>
   </nav>
@@ -31,30 +30,89 @@
           </div>
         </div>
       </div>
-      <!-- 其他工具卡片... -->
+      <div class="col-md-3">
+        <div class="card mb-4">
+          <img src="https://www.midjourney.com/favicon.ico" class="card-img-top" alt="Midjourney">
+          <div class="card-body">
+            <h5 class="card-title">Midjourney</h5>
+            <p class="card-text">AI艺术生成</p>
+            <a href="https://www.midjourney.com/" class="btn btn-primary" target="_blank">访问</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card mb-4">
+          <img src="https://www.jasper.ai/favicon.ico" class="card-img-top" alt="Jasper">
+          <div class="card-body">
+            <h5 class="card-title">Jasper</h5>
+            <p class="card-text">AI内容创作</p>
+            <a href="https://www.jasper.ai/" class="btn btn-primary" target="_blank">访问</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card mb-4">
+          <img src="https://www.copy.ai/favicon.ico" class="card-img-top" alt="Copy.ai">
+          <div class="card-body">
+            <h5 class="card-title">Copy.ai</h5>
+            <p class="card-text">AI文案生成</p>
+            <a href="https://www.copy.ai/" class="btn btn-primary" target="_blank">访问</a>
+          </div>
+        </div>
+      </div>
+      <!-- 可继续添加更多工具卡片 -->
     </div>
+    <!-- 分类导航 -->
     <h2>按分类浏览</h2>
     <ul class="nav nav-pills mb-3">
-      <li class="nav-item"><a class="nav-link active" href="#">AI写作</a></li>
-      <li class="nav-item"><a class="nav-link" href="#">AI绘画</a></li>
-      <li class="nav-item"><a class="nav-link" href="#">AI编程</a></li>
-      <li class="nav-item"><a class="nav-link" href="#">AI办公</a></li>
+      <li class="nav-item"><a class="nav-link active" href="#category-writing">AI写作</a></li>
+      <li class="nav-item"><a class="nav-link" href="#category-art">AI绘画</a></li>
+      <li class="nav-item"><a class="nav-link" href="#category-coding">AI编程</a></li>
+      <li class="nav-item"><a class="nav-link" href="#category-productivity">AI办公</a></li>
       <!-- 更多分类... -->
     </ul>
-    <!-- 分类下的工具列表... -->
+    <!-- 分类锚点及工具示例 -->
+    <h2 id="category-writing">AI写作工具</h2>
+    <ul>
+      <li><a href="https://chat.openai.com/" target="_blank">ChatGPT</a> - 智能写作与聊天</li>
+      <li><a href="https://www.jasper.ai/" target="_blank">Jasper</a> - AI内容创作</li>
+      <li><a href="https://www.copy.ai/" target="_blank">Copy.ai</a> - AI文案生成</li>
+      <li><a href="https://www.grammarly.com/" target="_blank">Grammarly</a> - AI语法检查</li>
+    </ul>
+    <h2 id="category-art">AI绘画工具</h2>
+    <ul>
+      <li><a href="https://www.midjourney.com/" target="_blank">Midjourney</a> - AI艺术生成</li>
+      <li><a href="https://runwayml.com/" target="_blank">Runway</a> - AI图片与视频编辑</li>
+    </ul>
+    <h2 id="category-coding">AI编程工具</h2>
+    <ul>
+      <li><a href="https://github.com/features/copilot" target="_blank">GitHub Copilot</a> - AI编程助手</li>
+    </ul>
+    <h2 id="category-productivity">AI办公工具</h2>
+    <ul>
+      <li><a href="https://www.notion.so/product/ai" target="_blank">Notion AI</a> - 办公自动化与写作助手</li>
+      <li><a href="https://www.deepl.com/" target="_blank">DeepL</a> - AI翻译</li>
+    </ul>
+    <!-- 关键词标签 -->
     <h2>最新趋势关键词</h2>
     <div>
-      <span class="badge bg-success">AI写作工具</span>
-      <span class="badge bg-info">AI绘画</span>
-      <span class="badge bg-warning">AI编程助手</span>
-      <span class="badge bg-primary">AI视频生成</span>
+      <span class="badge bg-success keyword-badge" style="cursor:pointer;">AI写作工具</span>
+      <span class="badge bg-info keyword-badge" style="cursor:pointer;">AI绘画</span>
+      <span class="badge bg-warning keyword-badge" style="cursor:pointer;">AI编程助手</span>
+      <span class="badge bg-primary keyword-badge" style="cursor:pointer;">AI视频生成</span>
+      <span class="badge bg-secondary keyword-badge" style="cursor:pointer;">AI语音合成</span>
+      <span class="badge bg-dark keyword-badge" style="cursor:pointer;">AI办公自动化</span>
       <!-- 更多关键词... -->
     </div>
+    <!-- 需求提交按钮 -->
     <h2>需求提交</h2>
-    <p>你没有找到想要的AI工具？<a href="https://theresanaiforthat.com/requests/" target="_blank">点击这里提交你的需求</a>，我们会帮你寻找或推荐！</p>
+    <p>你没有找到想要的AI工具？
+      <a href="https://theresanaiforthat.com/requests/" class="btn btn-warning btn-sm" target="_blank">点击这里提交你的需求</a>
+    </p>
+    <!-- 友情链接 -->
     <h2>友情链接</h2>
     <ul>
-      <li><a href="https://theresanaiforthat.com/" target="_blank">There’s an AI for That</a></li>
+      <li><a href="https://theresanaiforthat.com/" target="_blank">There's an AI for That</a></li>
       <li><a href="https://www.toolify.ai/" target="_blank">Toolify</a></li>
       <li><a href="https://www.futurepedia.io/" target="_blank">Futurepedia</a></li>
       <li><a href="https://www.aitoolmall.com/" target="_blank">AI工具集市</a></li>
@@ -63,5 +121,14 @@
   <footer class="text-center mt-5 mb-3">
     <small>© 2024 AI工具导航站 | 本站仅做工具收录与推荐，工具版权归原网站所有。</small>
   </footer>
+  <script>
+    // 关键词标签点击后自动填充搜索框并提交
+    document.querySelectorAll('.keyword-badge').forEach(function(badge) {
+      badge.addEventListener('click', function() {
+        document.getElementById('search-input').value = badge.textContent;
+        document.getElementById('search-form').submit();
+      });
+    });
+  </script>
 </body>
 </html>
