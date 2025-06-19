@@ -1,1 +1,1 @@
-# aitools-directory
+# aispot.ai
