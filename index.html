@@ -745,7 +745,7 @@
         </footer>
     </div>
 
-  <script>
+ <script>
     const searchInput = document.getElementById('searchInput');
     const toolsGrid = document.getElementById('toolsGrid');
     const searchResults = document.getElementById('searchResults');
@@ -753,18 +753,25 @@
     let allTools = [];
     let hotTools = [];
 
-    // 工具卡片静态数据初始化
+    // 工具卡片静态数据初始化，并去重
     function initTools() {
         if (allTools.length) return; // 只初始化一次
         const toolCards = document.querySelectorAll('.tool-card');
-        allTools = Array.from(toolCards).map(card => ({
-            name: card.querySelector('.tool-name').textContent,
-            desc: card.querySelector('.tool-desc').textContent,
-            tags: Array.from(card.querySelectorAll('.tag')).map(tag => tag.textContent),
-            category: card.getAttribute('data-category'),
-            link: card.querySelector('.tool-link').getAttribute('href'),
-            linkText: card.querySelector('.tool-link').textContent
-        }));
+        const toolMap = new Map();
+        Array.from(toolCards).forEach(card => {
+            const name = card.querySelector('.tool-name').textContent;
+            if (!toolMap.has(name)) {
+                toolMap.set(name, {
+                    name: name,
+                    desc: card.querySelector('.tool-desc').textContent,
+                    tags: Array.from(card.querySelectorAll('.tag')).map(tag => tag.textContent),
+                    category: card.getAttribute('data-category'),
+                    link: card.querySelector('.tool-link').getAttribute('href'),
+                    linkText: card.querySelector('.tool-link').textContent
+                });
+            }
+        });
+        allTools = Array.from(toolMap.values());
         hotTools = allTools.slice(0, 12);
     }
 
@@ -829,7 +836,7 @@
         featuredSection.classList.remove('collapsed');
     }
 
-    // 按分类筛选工具
+    // 按分类筛选工具（去重后筛选）
     function filterTools(category) {
         if (!allTools.length) initTools();
         const filteredTools = allTools.filter(tool => tool.category === category);
